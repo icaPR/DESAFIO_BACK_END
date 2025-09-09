@@ -1,0 +1,42 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+enum Estado {
+    ok
+    alarm
+}
+
+model Benchmark {
+    id        Int        @id @default(autoincrement())
+    name      String     @unique
+    controles Controle[]
+}
+
+model Controle {
+    id              Int               @id @default(autoincrement())
+    name            String
+    description     String
+    benchmark       Benchmark         @relation(fields: [benchmarkId], references: [id])
+    benchmarkId     Int
+    historicoEstado HistoricoEstado[]
+
+    @@index([benchmarkId])
+}
+
+model HistoricoEstado {
+    id         Int      @id @default(autoincrement())
+    estado     Estado
+    data_hora  DateTime @default(now())
+    controle   Controle @relation(fields: [controleId], references: [id])
+    controleId Int
+
+    @@index([controleId])
+    @@index([data_hora])
+    @@index([controleId, data_hora])
+}

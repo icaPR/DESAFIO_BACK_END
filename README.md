@@ -8,6 +8,6 @@ A modelagem conceitual (MER) e a definição dos índices básicos para o sistem
 
 A estratégia de automação para o processo de deploy da aplicação Node.js e React foi detalhada, abordando o problema, a causa e a solução, incluindo um diagrama de arquitetura para as fases de homologação e produção.
 
-## [Desafio 3: Automação de Ambientes Operacionais (Script de Backup)](/DESAFIO-Q3/DESAFIO-Q3)
+## [Desafio 3: Automação de Ambientes Operacionais (Script de Backup)](/DESAFIO-Q3/DESAFIO-Q3.md)
 
 Um script foi desenvolvido em **Node.js**, utilizando os módulos `fs` e `path`, para automatizar a rotina de gerenciamento de backups, conforme os requisitos de listagem, limpeza e movimentação de arquivos.
